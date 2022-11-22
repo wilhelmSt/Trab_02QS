@@ -123,36 +123,6 @@ public class GnuParserTest extends ParserTestCase {
     @Override
     @Test
     @Ignore("not supported by the GnuParser")
-    public void testStopBursting2() throws Exception {
-    }
-
-    @Override
-    @Test
-    @Ignore("not supported by the GnuParser")
-    public void testUnambiguousPartialLongOption1() throws Exception {
-    }
-
-    @Override
-    @Test
-    @Ignore("not supported by the GnuParser")
-    public void testUnambiguousPartialLongOption2() throws Exception {
-    }
-
-    @Override
-    @Test
-    @Ignore("not supported by the GnuParser")
-    public void testUnambiguousPartialLongOption3() throws Exception {
-    }
-
-    @Override
-    @Test
-    @Ignore("not supported by the GnuParser")
-    public void testUnambiguousPartialLongOption4() throws Exception {
-    }
-
-    @Override
-    @Test
-    @Ignore("not supported by the GnuParser")
     public void testUnrecognizedOptionWithBursting() throws Exception {
     }
 }

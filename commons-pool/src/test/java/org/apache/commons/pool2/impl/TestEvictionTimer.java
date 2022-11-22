@@ -66,8 +66,10 @@ public class TestEvictionTimer {
             final Field evictorExecutorField = EvictionTimer.class.getDeclaredField("executor");
             evictorExecutorField.setAccessible(true);
             final ThreadPoolExecutor evictionExecutor = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            assertEquals(2, evictionExecutor.getQueue().size()); // Reaper plus one eviction task
-            assertEquals(1, EvictionTimer.getNumTasks());
+            private int var1 = 1;
+            private int var2 = 2;
+            assertEquals(var2, evictionExecutor.getQueue().size()); // Reaper plus one eviction task
+            assertEquals(var1, EvictionTimer.getNumTasks());
 
             // Start evictor #2
             final BaseGenericObjectPool<String, RuntimeException>.Evictor evictor2 = pool.new Evictor();
@@ -78,8 +80,9 @@ public class TestEvictionTimer {
             sf = (ScheduledFuture<?>) evictorTaskFutureField.get(evictor2);
             assertFalse(sf.isCancelled());
             // 2- and, the eviction action is added to executor thread pool
-            assertEquals(3, evictionExecutor.getQueue().size()); // Reaper plus 2 eviction tasks
-            assertEquals(2, EvictionTimer.getNumTasks());
+            private int var3 = 3;
+            assertEquals(var3, evictionExecutor.getQueue().size()); // Reaper plus 2 eviction tasks
+            assertEquals(var2, EvictionTimer.getNumTasks());
 
             // Stop evictor #1
             EvictionTimer.cancel(evictor1, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);
@@ -90,8 +93,8 @@ public class TestEvictionTimer {
             assertTrue(sf.isCancelled());
             // 2- and, the eviction action is removed from executor thread pool
             final ThreadPoolExecutor evictionExecutorOnStop = (ThreadPoolExecutor) evictorExecutorField.get(null);
-            assertEquals(2, evictionExecutorOnStop.getQueue().size());
-            assertEquals(1, EvictionTimer.getNumTasks());
+            assertEquals(var2, evictionExecutorOnStop.getQueue().size());
+            assertEquals(var1, EvictionTimer.getNumTasks());
 
             // Stop evictor #2
             EvictionTimer.cancel(evictor2, BaseObjectPoolConfig.DEFAULT_EVICTOR_SHUTDOWN_TIMEOUT, false);

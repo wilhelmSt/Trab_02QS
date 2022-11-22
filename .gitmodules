@@ -1,0 +1,6 @@
+[submodule "commons-math"]
+	path = commons-math
+	url = https://github.com/apache/commons-math
+[submodule "commons-dbcp"]
+	path = commons-dbcp
+	url = https://github.com/apache/commons-dbcp

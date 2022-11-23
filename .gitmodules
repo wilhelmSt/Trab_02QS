@@ -1,3 +1,11 @@
 [submodule "commons-math"]
 	path = commons-math
 	url = https://github.com/wilhelmSt/commons-math
+[submodule "commons-cli"]
+	path = commons-cli
+	url = https://github.com/gabrielmaia2/commons-cli
+	branch = master
+[submodule "commons-pool"]
+	path = commons-pool
+	url = https://github.com/gabrielmaia2/commons-pool
+	branch = master
